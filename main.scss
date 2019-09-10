@@ -1,0 +1,45 @@
+@import 'variables';
+@import 'mixins';
+
+body {
+  @include reset;
+  @include center_flex;
+  height: 100vh;
+  font-family: $main-font;
+  font-size: $main-size;
+}
+
+.calendar {
+  display: grid;
+  grid-gap: $margin-gap;
+  grid-template-columns: repeat(7, $day-height);
+  grid-template-rows: repeat(6, $day-width);
+  grid-template-areas: "mon tue wed thu fri sat sun";
+
+  @each $day in mon tue wed thu fri sat sun {
+    &-#{$day} div:nth-child(1) {
+      grid-column-start: #{$day};
+    }
+  }
+
+  @for $month from 28 through 31 {
+    &-#{$month} div:nth-child(-n + #{$month}) {
+      @include center_flex;
+      background-color: $bg-color-main;
+      border: 1px solid black;
+      transition: .5s;
+
+      &:hover {
+        cursor: pointer;
+        background-color: $bg-color-secondary;
+        transform: translateY(-20px);
+      }
+    }
+    //setting date for each cells
+    @for $date from 1 through $month {
+      &-#{$month} div:nth-child(#{$date})::after {
+        content: "#{$date}";
+      }
+    }
+  }
+}
