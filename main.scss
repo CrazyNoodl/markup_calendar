@@ -16,14 +16,14 @@ body {
   grid-template-rows: repeat(6, $day-width);
   grid-template-areas: "mon tue wed thu fri sat sun";
 
-  @each $day in mon tue wed thu fri sat sun {
+  @each $day in $week-days {
     &-#{$day} div:nth-child(1) {
       grid-column-start: #{$day};
     }
   }
 
   @for $month from 28 through 31 {
-    &-#{$month} div:nth-child(-n + #{$month}) {
+    &-#{$month} div:nth-child(#{$month}) {
       @include center_flex;
       background-color: $bg-color-main;
       border: 1px solid black;

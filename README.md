@@ -29,4 +29,8 @@ You are encouraged to use SASS (.scss) for this task. Please do not use JavaScri
 
 **Result**
 
+<<<<<<< HEAD
 - [DEMO LINK](https://crazynoodl.github.io/markup_calendar/)
+=======
+- [DEMO LINK](https://crazynoodl.github.io/markup_calendar/)
+>>>>>>> fs_aug19_artem
